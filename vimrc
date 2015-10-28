@@ -34,9 +34,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'vbundles/ctrlp'
-NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+"NeoBundle 'Shougo/unite.vim'
 
 
 call neobundle#end()
@@ -45,9 +45,9 @@ call neobundle#end()
 "filetype plugin indent on
 filetype plugin indent on
 
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 " uncomment this to profile your vim and find resource hogs
 " profile start vimprofile.log
@@ -57,6 +57,7 @@ filetype plugin indent on
 " profile pause
 " noautocmd qall!
 
+"NERDTree
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -79,10 +80,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-"Airline Configuration
+"Airline
 let g:airline_theme='badwolf'
-"let g:airline_left_sep=''
-"let g:airline_right_sep=''
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
@@ -96,6 +97,16 @@ let g:airline#extensions#tabline#enabled = 1
 "	endif
 "endfunction
 
+"Indent Guides
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 50
+let g:indent_guides_auto_colors = 0
+au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=95 ctermbg=95
+au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=95 ctermbg=95
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=red
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=green
+
 syntax enable    " enable syntax processing
 
 "Color scheme selection.
@@ -103,16 +114,19 @@ syntax enable    " enable syntax processing
 "solorized: needs instalation
 "molokai: needs instalation
 try
-    "let g:solarized_termcolors=256
-    "set background=dark
-    "colorscheme solarized
+    try
+        "let g:solarized_termcolors=256
+        "set background=dark
+        "colorscheme solarized
 
-    set background=dark
-    let g:molokai_original=0
-    "let g:rehash256=1
-    colorscheme molokai
+        set background=dark
+        let g:molokai_original=0
+        "let g:rehash256=1
+        colorscheme molokai
+    catch
+        colorscheme desert
+    endtry
 catch
-	colorscheme desert
 endtry
 
 set timeoutlen=20
@@ -128,7 +142,7 @@ set lbr
 set tw=500
 
 set ruler    " Enable ruler
-set colorcolumn=120    " Display right column/gutter
+set colorcolumn=170    " Display right column/gutter
 set backspace=indent,eol,start    " Backspace setup
 set esckeys    " Allow cursor keys in insert mode
 set ttyfast    " Optimize for fast terminal connections
@@ -189,9 +203,11 @@ set tm=500
 " Tab/Spaces
 au FileType * setl sw=4 sts=4 et
 "au FileType vim setl sw=4 sts=4 et
-"au FileType java setl sw=4 sts=4 et
+au FileType java setl list
+"au FileType java setlocal noexpandtab
 "au FileType python setl sw=4 sts=4 et
 au FileType ruby setl sw=2 sts=2 et
+au BufEnter Makefile setlocal noexpandtab
 
 
 "augroup configgroup
