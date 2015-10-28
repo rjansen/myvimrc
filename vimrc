@@ -34,6 +34,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'vbundles/ctrlp'
 NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 
@@ -42,6 +43,19 @@ call neobundle#end()
 
 " Required by NeoBundle:
 "filetype plugin indent on
+filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
+
+" uncomment this to profile your vim and find resource hogs
+" profile start vimprofile.log
+" profile func *
+" profile file *
+" after quitting run the following commands
+" profile pause
+" noautocmd qall!
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -55,21 +69,17 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+"Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-set timeoutlen=20
-set linespace=0
+let g:syntastic_java_javac_options='-encoding utf8 -Xlint'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
- 
-"if !exists('g:airline_symbols')
-"  let g:airline_symbols = {}
-"endif
-"let g:airline_symbols.space = "\ua0"
+
+"Airline Configuration
 let g:airline_theme='badwolf'
 "let g:airline_left_sep=''
 "let g:airline_right_sep=''
@@ -86,36 +96,32 @@ let g:airline#extensions#tabline#enabled = 1
 "	endif
 "endfunction
 
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
-
 syntax enable    " enable syntax processing
-
-"set AirlineTheme badwolf
 
 "Color scheme selection.
 "desert: built-in scheme
 "solorized: needs instalation
 "molokai: needs instalation
 try
-	"let g:solarized_termcolors=256
-	"set background=dark
-	"colorscheme solarized
+    "let g:solarized_termcolors=256
+    "set background=dark
+    "colorscheme solarized
 
-	let g:molokai_original=0
-	"let g:rehash256=1
-	colorscheme molokai
+    set background=dark
+    let g:molokai_original=0
+    "let g:rehash256=1
+    colorscheme molokai
 catch
 	colorscheme desert
 endtry
 
-set expandtab	" Use spaces instead of tabs
-set smarttab	" Be smart when using tabs ;)
-set shiftwidth=4	" 1 tab == 4 spaces
-set tabstop=4       " number of visual spaces per TAB 
+set timeoutlen=20
+set linespace=0
+
+"set tabstop=4       " number of visual spaces per TAB 
+set shiftwidth=4    " 1 tab == 4 spaces
 set softtabstop=4   " number of spaces in tab when editing
-set expandtab       " tabs are spaces
+set expandtab    " Use spaces instead of tabs
 
 " Linebreak on 500 characters
 set lbr
@@ -145,22 +151,22 @@ set scrolloff=3    " Start scrolling three lines before the horizontal window bo
 "set si "Smart indent
 "set wrap "Wrap lines
 
-set foldenable          " enable folding
-set foldcolumn=1	" Add a bit extra margin to the left
-set foldmethod=syntax	"fold based on the file syntax
+"set foldenable          " enable folding
+"set foldcolumn=1	" Add a bit extra margin to the left
+"set foldmethod=syntax	"fold based on the file syntax
 "set foldmethod=indent   " fold based on indent level
-set foldlevel=1   " open most folds by default
-set foldlevelstart=1    " open most folds by default 
-set foldnestmax=10     " 10 nested fold max
+"set foldlevel=1   " open most folds by default
+"set foldlevelstart=1    " open most folds by default 
+"set foldnestmax=10     " 10 nested fold max
 
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
+"let javaScript_fold=1         " JavaScript
+"let perl_fold=1               " Perl
+"let php_folding=1             " PHP
+"let r_syntax_folding=1        " R
+"let ruby_fold=1               " Ruby
+"let sh_fold_enabled=1         " sh
+"let vimsyn_folding='af'       " Vim script
+"let xml_syntax_folding=1      " XML
 
 set relativenumber      " show line numbers relative to the cursor
 set number              " show line numbers
@@ -181,8 +187,12 @@ set t_vb=
 set tm=500
 
 " Tab/Spaces
-au FileType python setl sw=4 sts=4 et
+au FileType * setl sw=4 sts=4 et
+"au FileType vim setl sw=4 sts=4 et
+"au FileType java setl sw=4 sts=4 et
+"au FileType python setl sw=4 sts=4 et
 au FileType ruby setl sw=2 sts=2 et
+
 
 "augroup configgroup
 ""    autocmd!
