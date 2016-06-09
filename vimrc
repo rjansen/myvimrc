@@ -36,6 +36,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'vim-scripts/bats.vim'
 "NeoBundle 'Shougo/unite.vim'
 
 
@@ -102,8 +103,8 @@ let g:indent_guides_start_level = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 50
 let g:indent_guides_auto_colors = 0
-au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=95 ctermbg=95
-au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=95 ctermbg=95
+"au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=95 ctermbg=95
+"au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=95 ctermbg=95
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=red
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=green
 
