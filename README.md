@@ -1,7 +1,8 @@
 # Vim Configuration
 
+## Dependencies
+1. [Make](https://www.gnu.org/software/make)
+1. [Vim Bootstrap](https://vim-bootstrap.com/)
+
 ## Installation
-- Install [NeoBundle](https://github.com/Shougo/neobundle.vim)
-- Install [Powerline Fonts](https://github.com/powerline/fonts)
-- Rename vimrc to ~/.vimrc
-- Configure Terminal with Droid Sans Mono for Powerline 11pt.
+- `make install`
