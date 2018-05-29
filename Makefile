@@ -8,6 +8,7 @@ bootstrap-vim:
 install: clean bootstrap-vim
 	cp $(VIMRC) ~/.vimrc
 	cp local.vimrc ~/.vimrc.local
+	cp local.vimrc.bundles ~/.vimrc.local.bundles
 
 clean:
 	rm -Rf ~/.vim*

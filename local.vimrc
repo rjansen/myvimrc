@@ -1,9 +1,3 @@
-" Plugins
-Plug 'wakatime/vim-wakatime'
-Plug 'ngmy/vim-rubocop'
-Plug 'rainerborene/vim-reek'
-Plug 'terryma/vim-multiple-cursors'
-
 " Config
 set relativenumber
 let g:NERDTreeMapOpenInTabSilent = 'T'
