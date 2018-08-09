@@ -15,14 +15,3 @@ let g:reek_on_loading = 0
 
 " CtrlP map 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" CtrlSF map
-let g:ctrlsf_ackprg = 1
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
