@@ -17,6 +17,7 @@ let g:reek_on_loading = 0
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " CtrlSF map
+let g:ctrlsf_ackprg = 1
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
