@@ -1,5 +1,5 @@
 " Config
-set relativenumber
+set number
 set nrformats+=alpha
 let g:NERDTreeMapOpenInTabSilent = 'T'
 
