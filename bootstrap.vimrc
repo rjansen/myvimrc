@@ -1,4 +1,4 @@
-" vim-bootstrap rjansen
+" vim-bootstrap b0a75e4
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -46,8 +46,6 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-" rjansen: Remove vim-polygot because it conflicts with vim-go
-" Plug 'sheerun/vim-polyglot'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -164,6 +162,11 @@ Plug 'derekwyatt/vim-scala'
 
 "*****************************************************************************
 "*****************************************************************************
+
+" vim polyglot
+" rjansen: change vim polyglot to here because it conflicts with vim go
+Plug 'sheerun/vim-polyglot'
+
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
