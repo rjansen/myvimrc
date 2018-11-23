@@ -1,4 +1,4 @@
-" vim-bootstrap b990cad
+" vim-bootstrap rjansen
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -46,7 +46,8 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-Plug 'sheerun/vim-polyglot'
+" rjansen: Remove vim-polygot because it conflicts with vim-go
+" Plug 'sheerun/vim-polyglot'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
