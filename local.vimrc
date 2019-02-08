@@ -1,5 +1,6 @@
 " Config
 set number
+set cursorline
 set nrformats+=alpha
 let g:NERDTreeMapOpenInTabSilent = 'T'
 
