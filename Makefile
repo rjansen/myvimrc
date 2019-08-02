@@ -1,6 +1,6 @@
 URL ?= 'http://vim-bootstrap.com/generate.vim'
 # LANGS ?= 'langs=c&langs=elixir&langs=erlang&langs=go&langs=html&langs=javascript&langs=lua&langs=perl&langs=php&langs=python&langs=ruby&langs=rust&langs=scala&editor=vim'
-LANGS ?= 'langs=c&langs=elixir&langs=erlang&langs=go&langs=html&langs=javascript&langs=lua&langs=perl&langs=php&langs=python&langs=ruby&langs=rust&langs=scala&editor=vim'
+LANGS ?= 'langs=c&langs=elixir&langs=erlang&langs=go&langs=html&langs=lua&langs=perl&langs=php&langs=python&langs=ruby&langs=rust&langs=scala&editor=vim'
 VIMRC ?= bootstrap.vimrc
 
 bootstrap-vim:
