@@ -1,5 +1,6 @@
 " Plugins
 Plug 'wakatime/vim-wakatime'
+Plug 'zxqfl/tabnine-vim'
 Plug 'ngmy/vim-rubocop'
 Plug 'rainerborene/vim-reek'
 Plug 'terryma/vim-multiple-cursors'

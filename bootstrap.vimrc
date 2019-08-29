@@ -15,7 +15,7 @@ if !filereadable(vimplug_exists)
   endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent exec "!\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
@@ -36,12 +36,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
+Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -142,14 +143,10 @@ if has('python')
 endif
 " vim-scala
 Plug 'derekwyatt/vim-scala'
-
-
-"*****************************************************************************
-"*****************************************************************************
-
-" vim polyglot
-" rjansen: change vim polyglot to here because it conflicts with vim go
 Plug 'sheerun/vim-polyglot'
+
+"*****************************************************************************
+"*****************************************************************************
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -322,6 +319,13 @@ let Grep_Skip_Dirs = '.git node_modules'
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
 
+
+"*****************************************************************************
+"" Commands
+"*****************************************************************************
+" remove trailing whitespaces
+command! FixWhitespace :%s/\s\+$//e
+
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
@@ -423,7 +427,7 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
-nmap <C-h> :History:<CR>
+nmap <leader>y :History:<CR>
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -676,6 +680,7 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 
 " scala
+
 
 
 "*****************************************************************************
