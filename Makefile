@@ -1,10 +1,10 @@
 URL ?= 'http://vim-bootstrap.com/generate.vim'
 # LANGS ?= 'langs=c&langs=elixir&langs=erlang&langs=go&langs=html&langs=javascript&langs=lua&langs=perl&langs=php&langs=python&langs=ruby&langs=rust&langs=scala&editor=vim'
-LANGS ?= 'langs=c&langs=elixir&langs=erlang&langs=go&langs=html&langs=javascript&langs=lua&langs=perl&langs=php&langs=python&langs=ruby&langs=rust&langs=scala&editor=vim'
+LANGS ?= 'langs=c&langs=erlang&langs=go&langs=html&langs=javascript&langs=lua&langs=ocaml&langs=perl&langs=php&langs=python&langs=ruby&langs=rust&langs=scala&langs=typescript&editor=vim'
 VIMRC ?= bootstrap.vimrc
 
 bootstrap-vim:
-	curl $(URL) --data $(LANGS) > $(VIMRC)
+	curl -L $(URL) --data $(LANGS) > $(VIMRC)
 
 install: clean
 	cp $(VIMRC) ~/.vimrc
